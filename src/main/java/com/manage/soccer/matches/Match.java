@@ -3,9 +3,7 @@ package com.manage.soccer.matches;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
@@ -17,6 +15,7 @@ import java.util.Date;
 @Data
 public class Match {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private Date match_date;
