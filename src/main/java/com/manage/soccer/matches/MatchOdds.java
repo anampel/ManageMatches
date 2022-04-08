@@ -1,8 +1,10 @@
 package com.manage.soccer.matches;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -17,10 +19,15 @@ import java.util.List;
 @Data
 public class MatchOdds {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "match_id")
-    private List<Match> matches = new ArrayList<>();
-    private String specifiers;
+    private Match match;
+    @Column(name = "specifier")
+    @NotNull
+    private String specifier;
+    @Column(name = "odd")
+    @NotNull
     private Double odd;
 }

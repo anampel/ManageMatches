@@ -3,6 +3,7 @@ package com.manage.soccer.matches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,18 +23,18 @@ public class MatchController {
     }
 
     @PostMapping("/addNewMatch")
-    public String addNewMatch(@RequestBody Match match){
+    public String addNewMatch(@RequestBody Match match) {
         matchService.addNewMatch(match);
         return "Success";
     }
 
-    @PutMapping("editMatch")
+    @PutMapping("/editMatch")
     public String editMatch(@RequestBody Match match){
         matchService.editMatch(match);
         return "Success";
     }
 
-    @DeleteMapping("deleteMatch")
+    @DeleteMapping("/deleteMatch")
     public String delete(@RequestParam Long id){
         matchService.deleteMatch(id);
         return "Success";
