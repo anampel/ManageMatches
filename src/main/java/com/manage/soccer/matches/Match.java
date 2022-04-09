@@ -1,5 +1,8 @@
 package com.manage.soccer.matches;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.manage.soccer.utils.TimeDeserializer;
+import com.sun.istack.NotNull;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,19 +18,19 @@ public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "description")
     private String description;
-    @Column(name = "match_date")
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date match_date;
-    @Column(name = "team_a")
+    @NotNull
     private String team_a;
-    @Column(name = "team_b")
+    @NotNull
     private String team_b;
-    @Column(name = "sport")
     private Sport sport;
+    @NotNull
     @Temporal(TemporalType.TIME)
-    @Column(name = "match_time")
-    private java.util.Date match_time;
+    @DateTimeFormat(style = "hh:mm")
+    @JsonDeserialize(using = TimeDeserializer.class)
+    private Date match_time;
 
 }

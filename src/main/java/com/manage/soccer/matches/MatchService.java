@@ -22,7 +22,6 @@ public class MatchService {
 
     public void addNewMatch(Match match){
         try {
-            match.setMatch_time(new SimpleDateFormat(timeFormat).parse("15:30:14"));
             matchRepository.save(match);
         } catch (Exception e) {
             System.out.println(e);
