@@ -4,20 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class MatchService {
     private MatchRepository matchRepository;
-    private static final String timeFormat ="HH:mm:ss";
     @Autowired
     public MatchService(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
     }
 
     public Optional<Match> findMatchById(Long id) {
-        return matchRepository.findMatchByMatch_id(id);
+        return matchRepository.findMatchById(id);
+    }
+
+    public List<Match> findByMatchOdds(Double odd) {
+        return matchRepository.findMatchByMatchOdds(odd);
     }
 
     public void addNewMatch(Match match){
@@ -29,7 +32,7 @@ public class MatchService {
     }
 
     public void editMatch(Match match) {
-        Optional<Match> matchById = matchRepository.findMatchByMatch_id(match.getId());
+        Optional<Match> matchById = matchRepository.findMatchById(match.getId());
         if (matchById.isPresent()) {
             matchRepository.save(match);
         } else {
@@ -38,7 +41,7 @@ public class MatchService {
     }
 
     public void deleteMatch(Long id) {
-        Optional<Match> matchById = matchRepository.findMatchByMatch_id(id);
+        Optional<Match> matchById = matchRepository.findMatchById(id);
         if (matchById.isPresent()) {
             matchRepository.deleteById(id);
         } else {

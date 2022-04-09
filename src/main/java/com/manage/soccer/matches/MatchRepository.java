@@ -10,8 +10,10 @@ import java.util.Optional;
 @Repository
 public interface MatchRepository extends JpaRepository<Match, Long> {
 
-    @Query("SELECT m FROM Match m WHERE m.id=?1")
-    Optional<Match> findMatchByMatch_id(Long id);
+    Optional<Match> findMatchById(Long id);
+
+    @Query("SELECT m FROM Match m, MatchOdds mo WHERE mo.match.id = m.id and mo.odd=?1")
+    List<Match> findMatchByMatchOdds(Double odd);
 
 
 }

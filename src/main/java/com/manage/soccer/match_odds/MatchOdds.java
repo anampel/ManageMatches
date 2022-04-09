@@ -1,5 +1,6 @@
-package com.manage.soccer.matches;
+package com.manage.soccer.match_odds;
 
+import com.manage.soccer.matches.Match;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;

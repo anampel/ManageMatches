@@ -3,7 +3,6 @@ package com.manage.soccer.matches;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +25,12 @@ public class MatchController {
     public String addNewMatch(@RequestBody Match match) {
         matchService.addNewMatch(match);
         return "Success";
+    }
+
+    @GetMapping("/findMatchByMatchOdds")
+    public List<Match> findMatchByMatchOdds(@RequestParam Double odd) {
+        return matchService.findByMatchOdds(odd);
+
     }
 
     @PutMapping("/editMatch")
