@@ -1,4 +1,4 @@
-package com.manage.soccer.matches;
+package com.manage.matches.matches;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.manage.soccer.utils;
+package com.manage.matches.utils;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -1,7 +1,7 @@
-package com.manage.soccer.matches;
+package com.manage.matches.matches;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.manage.soccer.utils.TimeDeserializer;
+import com.manage.matches.utils.TimeDeserializer;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

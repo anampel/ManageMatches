@@ -1,16 +1,13 @@
-package com.manage.soccer.match_odds;
+package com.manage.matches.match_odds;
 
-import com.manage.soccer.matches.Match;
+import com.manage.matches.matches.Match;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Table(name = "MATCH_ODDS")
 @Entity

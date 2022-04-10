@@ -1,13 +1,13 @@
-package com.manage.soccer;
+package com.manage.matches;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SoccerApplication {
+public class ManageMatchesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SoccerApplication.class, args);
+        SpringApplication.run(ManageMatchesApplication.class, args);
     }
 
 }
