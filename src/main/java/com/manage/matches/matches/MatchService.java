@@ -16,7 +16,10 @@ public class MatchService {
     }
 
     public Optional<Match> findMatchById(Long id) {
-        return matchRepository.findMatchById(id);
+        Optional<Match> responseMatch = matchRepository.findMatchById(id);
+        if (responseMatch.isPresent())
+            responseMatch.get().setSport(Sport.getSportNameByCode(responseMatch.get().getSport()));
+        return responseMatch;
     }
 
     public List<Match> findByMatchOdds(Double odd) {
@@ -25,6 +28,8 @@ public class MatchService {
 
     public void addNewMatch(Match match){
         try {
+
+            match.setSport(Sport.getSportCodeByName(match.getSport()));
             matchRepository.save(match);
         } catch (Exception e) {
             System.out.println(e);
@@ -34,6 +39,7 @@ public class MatchService {
     public void editMatch(Match match) {
         Optional<Match> matchById = matchRepository.findMatchById(match.getId());
         if (matchById.isPresent()) {
+            match.setSport(Sport.getSportCodeByName(match.getSport()));
             matchRepository.save(match);
         } else {
             throw new IllegalArgumentException("The match_id: " + match.getId() + " does not exist!");

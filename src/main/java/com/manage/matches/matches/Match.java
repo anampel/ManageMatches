@@ -26,7 +26,7 @@ public class Match {
     private String team_a;
     @NotNull
     private String team_b;
-    private Sport sport;
+    private String sport;
     @NotNull
     @Temporal(TemporalType.TIME)
     @DateTimeFormat(style = "hh:mm")
