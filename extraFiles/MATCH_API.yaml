@@ -144,8 +144,7 @@ components:
         match_time:
           type: string
         sport:
-          type: integer
-          format: int64
+          type: string
               
     Error:
       type: object
