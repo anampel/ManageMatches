@@ -8,7 +8,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-
+/**
+ * Match object
+ * */
 @Table(name = "MATCH", uniqueConstraints = { @UniqueConstraint(name = "UniqueMatch", columnNames = {"match_date", "team_a", "team_b"})})
 @Entity
 @AllArgsConstructor
